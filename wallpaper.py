@@ -4,13 +4,12 @@ from bing_img import *
 from set_wallpaper import *
 from favourites import *
 
-if __name__ == "__main__":
-    # Specify the folder where you want to save the Bing images
-    
-    image_folder = "Downloads"
-    destination_folder = "Favourites"
-    change_background = True
 
+image_folder = "Downloads"
+destination_folder = "Favourites"
+change_background = True
+
+def main():
     # Delete previous downloads
     for f in os.listdir(image_folder):
         os.remove(os.path.join(image_folder, f))
@@ -29,6 +28,7 @@ if __name__ == "__main__":
 
     if favourite == "Y" or "y":
         save_to_favourites(image_folder, destination_folder)
+        print("Image saved to favourites folder")
 
     else:
         print("Image will be deleted on next run")
@@ -39,6 +39,7 @@ if __name__ == "__main__":
         set_random_wallpaper(destination_folder)
 
 
+if __name__ == "__main__":
+    main()    
     
-
-
+    
