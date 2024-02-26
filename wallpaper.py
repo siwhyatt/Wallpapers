@@ -5,8 +5,8 @@ from set_wallpaper import *
 from favourites import *
 
 
-image_folder = "Downloads"
-destination_folder = "Favourites"
+image_folder = "Downloads/"
+destination_folder = "Favourites/"
 change_background = True
 
 def main():
@@ -26,9 +26,8 @@ def main():
 
     favourite = input("Save as favourite? Y/N:")
 
-    if favourite == "Y" or "y":
+    if favourite == "Y":
         save_to_favourites(image_folder, destination_folder)
-        print("Image saved to favourites folder")
 
     else:
         print("Image will be deleted on next run")

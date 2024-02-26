@@ -1,6 +1,11 @@
 import os
 import shutil
 
+
+source_folder = "Downloads/"
+destination_folder = "Favourites/"
+
+
 def save_to_favourites(source_folder, destination_folder):
 
     source_folder = source_folder
@@ -16,9 +21,11 @@ def save_to_favourites(source_folder, destination_folder):
             shutil.copy(source, destination)
             print('Copied to favourites:', file_name)
 
-if __name__ == "__main__":
 
-    source_folder = "Downloads/"
-    destination_folder = "Favourites/"
-
+def main():
     save_to_favourites(source_folder, destination_folder)
+
+
+if __name__ == "__main__":
+    main()
+    

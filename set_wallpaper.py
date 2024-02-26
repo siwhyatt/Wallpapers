@@ -32,4 +32,3 @@ if __name__ == '__main__':
     
     set_random_wallpaper(destination_folder)
 
-    #'/home/siwhyatt/Pictures/Wallpapers/Favourites'

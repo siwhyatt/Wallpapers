@@ -4,6 +4,8 @@ import os
 #import datetime
 from set_wallpaper import set_gnome_wallpaper
 
+image_folder = "Downloads"
+
 def download_bing_image(image_folder):
     # Bing Image of the Day URL
     url = "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
@@ -48,10 +50,8 @@ def download_bing_image(image_folder):
         print("Error:", e)
         return None
 
-if __name__ == "__main__":
-    # Specify the folder where you want to save the Bing images
-    image_folder = "Downloads"
 
+def main():
     for f in os.listdir(image_folder):
         os.remove(os.path.join(image_folder, f))
 
@@ -64,3 +64,9 @@ if __name__ == "__main__":
         print("Failed to download the image.")
 
     set_gnome_wallpaper(r'"' + os. getcwd() + "/"+ image_filename + '"')
+
+
+if __name__ == "__main__":
+    main()
+
+    
