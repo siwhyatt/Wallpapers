@@ -1,6 +1,5 @@
 import subprocess
 import os.path
-from sys import argv
 import os
 import fnmatch
 import random

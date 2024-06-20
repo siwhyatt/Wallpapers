@@ -2,7 +2,6 @@ import time
 import os
 from typing import Callable
 
-from bing_img import *
 from nasa_img import download_nasa_apod
 from set_wallpaper import *
 from favourites import *
@@ -32,7 +31,7 @@ def SetAsFavourite() -> bool:
     # Get user input whether to save as favourite
     favourite = input("Save as favourite? Y/N:")
 
-    if favourite == "Y":
+    if favourite.lower() == "y":
         save_to_favourites(image_folder, destination_folder)
         return True
     else:
@@ -44,14 +43,9 @@ def main():
     # Delete images in downloads folder
     DeleteDownloads()
     # Download image of the day from Bing    
-    DownloadAndSetBackgroundImage(download_bing_image, image_folder)
+    DownloadAndSetBackgroundImage(download_nasa_apod, image_folder)
     # Prompt to add to favourites
     SetAsFavourite()
-    # If not favourite, check Nasa
-    # if favourite == False:
-    #     DeleteDownloads()
-    #     DownloadAndSetBackgroundImage(download_nasa_apod, image_folder)
-    #     SetAsFavourite()
 
     while change_background == True:
         time.sleep(3600)
