@@ -3,7 +3,6 @@ import os
 from typing import Callable
 
 from bing_img import *
-from nasa_img import download_nasa_apod
 from set_wallpaper import *
 from favourites import *
 
@@ -32,7 +31,7 @@ def SetAsFavourite() -> bool:
     # Get user input whether to save as favourite
     favourite = input("Save as favourite? Y/N:")
 
-    if favourite == "Y":
+    if favourite == "Y" or "y":
         save_to_favourites(image_folder, destination_folder)
         return True
     else:
