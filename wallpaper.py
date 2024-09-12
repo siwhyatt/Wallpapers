@@ -31,7 +31,7 @@ def SetAsFavourite() -> bool:
     # Get user input whether to save as favourite
     favourite = input("Save as favourite? Y/N:")
 
-    if favourite == "Y" or "y":
+    if favourite.upper() == "Y":
         save_to_favourites(image_folder, destination_folder)
         return True
     else:
