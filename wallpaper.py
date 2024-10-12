@@ -1,4 +1,3 @@
-import time
 import os
 from typing import Callable
 
@@ -46,16 +45,11 @@ def main():
     DownloadAndSetBackgroundImage(download_bing_image, image_folder)
     # Prompt to add to favourites
     SetAsFavourite()
-    # If not favourite, check Nasa
-    # if favourite == False:
-    #     DeleteDownloads()
-    #     DownloadAndSetBackgroundImage(download_nasa_apod, image_folder)
-    #     SetAsFavourite()
 
-    while change_background == True:
-        time.sleep(3600)
-        set_random_wallpaper(destination_folder)
-
+    # while change_background == True:
+    #     time.sleep(3600)
+    #     set_random_wallpaper(destination_folder)
+    #
 
 if __name__ == "__main__":
     main()    
