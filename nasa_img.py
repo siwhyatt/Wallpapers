@@ -1,18 +1,22 @@
 import requests
 import os
-from set_wallpaper import set_gnome_wallpaper
+from dotenv import load_dotenv
 
-image_folder = "Downloads"
 
 def download_nasa_apod(image_folder):
-    # Bwng Image of the Day URL
-    url = "https://api.nasa.gov/planetary/apod?api_key=gi9vbuqnAwKfDRDHCqcoaviKvPwFx3RLfixRPekX"
+
+    # Get the directory of the current file
+    module_dir = os.path.dirname(os.path.abspath(__file__))
+    # Path to the .env file
+    dotenv_path = os.path.join(module_dir, '.env')
+    # Load the .env file
+    load_dotenv(dotenv_path=dotenv_path)
+
+    url = str(os.getenv('URL'))
 
     try:
         # Send an HTTP GET request to the NASA API
         response = requests.get(url)
-        print(response.raise_for_status())
-        
         # Parse the JSON response
         data = response.json()
         
@@ -51,23 +55,3 @@ def download_nasa_apod(image_folder):
         print("Error:", e)
         return None
 
-
-def main():
-    for f in os.listdir(image_folder):
-        os.remove(os.path.join(image_folder, f))
-
-    # Download the Nasa Image of the Day and get the image filename
-    image_filename = download_nasa_apod(image_folder)
-
-    if image_filename:
-        print(f"Image downloaded and saved to: {image_filename}")
-    else:
-        print("Failed to download the image.")
-
-    set_gnome_wallpaper(r'"' + os. getcwd() + "/"+ image_filename + '"')
-
-
-if __name__ == "__main__":
-    main()
-
-    

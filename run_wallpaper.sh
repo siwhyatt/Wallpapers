@@ -7,7 +7,7 @@ export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus"
 
 # Change to the directory containing the Python script
-cd /home/siwhyatt/Pictures/Wallpapers
+cd ~/Pictures/Wallpapers
 
 # Run the Python script
 /usr/bin/python3 ./set_wallpaper.py
