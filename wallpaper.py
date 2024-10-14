@@ -6,22 +6,29 @@ from set_wallpaper import *
 from favourites import *
 
 
-image_folder = "Downloads/"
-destination_folder = "Favourites/"
+image_folder = "/home/siwhyatt/Pictures/Wallpapers/Downloads/"
+destination_folder = "/home/siwhyatt/Pictures/Wallpapers/Favourites/"
 change_background = True
 
 def DeleteDownloads() -> None:
     # Delete previous downloads
-    for f in os.listdir(image_folder):
-        os.remove(os.path.join(image_folder, f))
+    print("Deleting old images")
+    if len(os.listdir(image_folder)) > 0:
+        for f in os.listdir(image_folder):
+            os.remove(os.path.join(image_folder, f))
+            print(f"{os.path.join(image_folder, f)} removed")
+    else:
+        print("Downloads folder is empty")
 
 def DownloadAndSetBackgroundImage(ImgFunc: Callable, image_folder: str) -> None:
     # Download the Image of the Day and get the image filename
+    print("Attempting to download image")
     image_filename = ImgFunc(image_folder)
 
     if image_filename:
         print(f"Image downloaded and saved to: {image_filename}")
-        set_gnome_wallpaper(r'"' + os. getcwd() + "/"+ image_filename + '"')
+        set_gnome_wallpaper(r'"' + image_filename + '"')
+        # set_gnome_wallpaper(r'"' + os. getcwd() + "/"+ image_filename + '"')
     else:
         print("Failed to download the image.")
 
@@ -46,10 +53,6 @@ def main():
     # Prompt to add to favourites
     SetAsFavourite()
 
-    # while change_background == True:
-    #     time.sleep(3600)
-    #     set_random_wallpaper(destination_folder)
-    #
 
 if __name__ == "__main__":
     main()    
